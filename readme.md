@@ -13,6 +13,12 @@ Topics
 * NPM, Package.json
 * Debugging
 
+Global Requirements
+---------------
+
+#### Grunt CLI 
+
+` $ sudo npm install -g grunt-cli `
 
 Commands
 --------
