@@ -22,12 +22,10 @@ process.title = 'skidictionary';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-if (app.get('env') !== 'test') {
-    app.use(function(req, res, next) {
-        console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.body)}`);
-        next();
-    });
-}
+app.use(function(req, res, next) {
+    console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.body)}`);
+    next();
+});
 
 app.use(express.static('./dist'));
 app.use(cors());

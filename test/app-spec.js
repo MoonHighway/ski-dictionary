@@ -1,9 +1,14 @@
 var request = require('supertest');
 var expect = require('chai').expect;
 var rewire = require('rewire');
+var cheerio = require('cheerio');
 var app = rewire('../app-server');
 
 describe("Dictionary App", function () {
+
+    before(function() {
+        app.__set__("console", { log: function() {} });
+    });
 
     it("Loads the home page", function (done) {
        request(app).get("/").expect(200).end(function(err, res) {
